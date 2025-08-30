@@ -102,7 +102,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Configure Django REST Framework to use JWT authentication by default and require users to be authenticated for all API endpoints
+# Configure Django REST Framework global settings:
+# - JWT authentication by default
+# - Require authentication for all endpoints unless overridden
+# - Pagination: PageNumberPagination, 5 items per page
+# - Filtering: field-based, search, and ordering
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -110,6 +114,14 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5,  # return 5 items per page
+
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',  # field-based filtering (?field=value)
+        'rest_framework.filters.SearchFilter',               # search by keyword (?search=keyword)
+        'rest_framework.filters.OrderingFilter',             # ordering results (?ordering=field or ?ordering=-field)
+    ],
 }
 
 
