@@ -19,7 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include('users.urls')),
+    path('api/auth/', include('users.urls')), # Mount the users API under the '/api/'
+    path('api/', include('books.urls')),  # Mount the books application API under the '/api/'
 ]
 
 # from django.http import JsonResponse
