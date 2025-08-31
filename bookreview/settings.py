@@ -29,7 +29,7 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 DEBUG = True
 
 # Allow localhost + PythonAnywhere domain
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "<ruth1>.pythonanywhere.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "ruth1.pythonanywhere.com"]
 
 
 # Application definition
