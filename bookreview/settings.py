@@ -37,6 +37,8 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost", "<ruth1>.pythonanywhere.com"]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.contenttypes',  
+    'django.contrib.sessions',  
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
